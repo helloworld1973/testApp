@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Ionic Blank
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+    <ion-label>Date</ion-label>
+    <ion-datetime display-format="YYYY MMM DD" [(ngModel)]="Date" (ngModelChange)="save(Date,Time)"></ion-datetime>
+  </ion-item>
+  <ion-item>
+    <ion-label>Time</ion-label>
+    <ion-datetime display-format="hh:mm A" [(ngModel)]="Time" (ngModelChange)="save(Date,Time)"></ion-datetime>
+  </ion-item>
+
+  <h2>My Heroes</h2>
+  <ul class="heroes">
+    <li *ngFor="let hero of heroes" (click)="onSelect(hero)" [class.selected]="hero === selectedHero">
+      <span class="badge">{{hero.id}}</span> {{hero.name}}
+    </li>
+  </ul>
+
+  <app-home-detail [hero]="selectedHero"></app-home-detail>
+
+
+</ion-content>
